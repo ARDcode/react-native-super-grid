@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  View, Dimensions, ViewPropTypes, FlatList,
+  View, Dimensions, ViewPropTypes, 
 } from 'react-native';
+import {FlatList} from "react-native-gesture-handler";
 import PropTypes from 'prop-types';
 import { chunkArray, calculateDimensions, generateStyles } from './utils';
 
