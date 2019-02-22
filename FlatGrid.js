@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View, Dimensions, ViewPropTypes, 
 } from 'react-native';
-import {FlatList} from "react-native-gesture-handler";
+import { FlatList } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import PropTypes from 'prop-types';
 import { chunkArray, calculateDimensions, generateStyles } from './utils';
 
@@ -50,6 +51,8 @@ class FlatGrid extends React.Component {
     }
   }
 
+  getRef = () => this.flatList;
+  
   renderRow({
     rowItems,
     rowIndex,
@@ -130,6 +133,7 @@ class FlatGrid extends React.Component {
     return (
       <FlatList
         data={rows}
+        renderScrollComponent={props => <ScrollView {...props} />}
         renderItem={({ item, index }) => this.renderRow({
           rowItems: item,
           rowIndex: index,
